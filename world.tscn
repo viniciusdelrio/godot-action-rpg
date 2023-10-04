@@ -1,33 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://c342ll1otbhsc"]
+[gd_scene load_steps=3 format=3 uid="uid://c342ll1otbhsc"]
 
-[ext_resource type="Texture2D" uid="uid://bvwgmxbn40wu8" path="res://World/Bush.png" id="1_mkeew"]
-[ext_resource type="Texture2D" uid="uid://bo45mlbdwnpo4" path="res://Player/Player.png" id="2_juom6"]
-[ext_resource type="Script" path="res://Player/Player.gd" id="2_vtwck"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pk2vi"]
-radius = 3.981
-height = 12.0
+[ext_resource type="PackedScene" uid="uid://cw4bo8d3um0jc" path="res://Player/player.tscn" id="2_1tsiu"]
+[ext_resource type="PackedScene" uid="uid://cn2voyyw5lme7" path="res://World/bush.tscn" id="2_u2x3m"]
 
 [node name="World" type="Node2D"]
+y_sort_enabled = true
 
-[node name="Bush" type="Sprite2D" parent="."]
-position = Vector2(29, 30)
-texture = ExtResource("1_mkeew")
+[node name="Player" parent="." instance=ExtResource("2_1tsiu")]
+position = Vector2(160, 80)
 
-[node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(79, 57)
-script = ExtResource("2_vtwck")
+[node name="Bush" parent="." instance=ExtResource("2_u2x3m")]
+position = Vector2(88, 48)
 
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-texture = ExtResource("2_juom6")
-hframes = 60
+[node name="Bush2" parent="." instance=ExtResource("2_u2x3m")]
+position = Vector2(104, 104)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(0, 9)
-rotation = -1.5708
-shape = SubResource("CapsuleShape2D_pk2vi")
+[node name="Bush3" parent="." instance=ExtResource("2_u2x3m")]
+position = Vector2(216, 104)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(0, 0, 72, 0, 48, 56, 64, 104, 24, 144, 72, 152, 72, 168, 104, 184, 128, 136, 240, 160, 264, 96, 224, 64, 264, 16, 248, 0, 312, 0, 312, 200, 8, 200)
+[node name="Bush4" parent="." instance=ExtResource("2_u2x3m")]
+position = Vector2(248, 40)
